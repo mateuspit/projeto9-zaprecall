@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import React from "react";
 import Logo from "../assets/logo.png"
+import Question from "./Question";
 import Wrong from "../assets/icone_erro.png"
 import Right from "../assets/icone_certo.png"
 import Almost from "../assets/icone_quase.png"
-import Play from "../assets/seta_play.png"
 
 export default function QuestionsPage() {
     return (
@@ -13,31 +13,20 @@ export default function QuestionsPage() {
                 <LogoHome src={Logo} alt="Logo" />
                 <TitleHome>ZapRecall</TitleHome>
             </Header>
-            <QuestionSpot>
-                <WrongAnswer>
-                    Pergunta 1
-                </WrongAnswer>
-                <Icon src={Wrong} alt={"WrongIcon"} />
-            </QuestionSpot>
-            <QuestionSpot>
-                <RightAnswer>
-                    Pergunta 2
-                </RightAnswer>
-                <Icon src={Right} alt={"AlmostIcon"} />
-            </QuestionSpot>
-            <QuestionSpot>
-                <PlayAnswer>
-                    Pergunta 3
-                </PlayAnswer>
-                <Icon src={Play} alt={"PlayIcon"} />
-            </QuestionSpot>
-            <QuestionSpot>
-                <AlmostAnswer>
-                    Pergunta 4
-                </AlmostAnswer>
-                <Icon src={Almost} alt={"RightIcon"} />
-            </QuestionSpot>
+
+            <Question />
+
+
+
             <Stats>
+                <FinalMessage>
+                    <FinalTitle>
+                        🥳 Parabéns!
+                    </FinalTitle>
+                    <FinalText>
+                        Você não esqueceu de nenhum flashcard!
+                    </FinalText>
+                </FinalMessage>
                 <DoneItensStatus>
                     3/4 CONCLUÍDOS
                 </DoneItensStatus>
@@ -51,6 +40,37 @@ export default function QuestionsPage() {
         </ContainerQuestionsPage>
     );
 }
+
+const FinalText = styled.p`
+    width: 222px;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #333333;
+`;
+
+const FinalTitle = styled.p`
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #333333;
+    margin-bottom: 14px;
+`;
+
+const FinalMessage = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+`;
+
+
 
 const DoneIconsStatus = styled.div`
     display: flex;
@@ -107,63 +127,9 @@ const Header = styled.header`
     align-items: center;
 `;
 
-const QuestionSpot = styled.div`
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
-    width: 300px;
-    height: 65px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 25px;
-`;
 
-const WrongAnswer = styled.p`
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration-line: line-through;
-    color: #FF3030;
-    margin-left: 15px;
-`;
 
 const Icon = styled.img`
     width: 23px;
-    margin-right: 15px;
-`;
-
-const RightAnswer = styled.p`
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration-line: line-through;
-    color: #2FBE34;
-    margin-left: 15px;
-`;
-
-const PlayAnswer = styled.p`
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration-line: line-through;
-    color: #333333;
-    margin-left: 15px;
-`;
-
-const AlmostAnswer = styled.p`
-    font-family: 'Recursive';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration-line: line-through;
-    color: #FF922E;
-    margin-left: 15px;
+    margin-right: 5px;
 `;
