@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 
 
-export default function Question() {
+export default function QuestionNumberSpot() {
     return (
         <ContainerQuestion>
             <QuestionSpot>
@@ -56,7 +56,7 @@ export default function Question() {
 }
 
 const ContainerQuestion = styled.div`
-    margin-bottom: 180px;
+    /* margin-bottom: 180px; */
 `;
 
 const IconButton = styled.img`
@@ -104,7 +104,6 @@ const PlayAnswer = styled.p`
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    text-decoration-line: line-through;
     color: #333333;
     margin-left: 15px;
 `;

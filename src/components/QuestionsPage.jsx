@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import React from "react";
 import Logo from "../assets/logo.png"
-import Question from "./Question";
+import QuestionNumberSpot from "./QuestionNumberSpot";
+import QuestionSpot from "./QuestionSpot";
 import Wrong from "../assets/icone_erro.png"
 import Right from "../assets/icone_certo.png"
 import Almost from "../assets/icone_quase.png"
@@ -12,9 +13,12 @@ export default function QuestionsPage() {
             <Header>
                 <LogoHome src={Logo} alt="Logo" />
                 <TitleHome>ZapRecall</TitleHome>
-            </Header>
+            </Header>            
 
-            <Question />
+            <QuestionNumberSpot />
+
+            <QuestionSpot />
+            
 
 
 
@@ -105,7 +109,7 @@ const ContainerQuestionsPage = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    margin-bottom: 180px;
 `;
 
 const LogoHome = styled.img`
