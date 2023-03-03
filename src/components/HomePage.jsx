@@ -13,7 +13,7 @@ export default function HomePage() {
 }
 
 const ContainerHomePage = styled.div`
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 

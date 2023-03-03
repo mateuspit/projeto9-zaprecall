@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import React from "react";
 import HomePage from "./components/HomePage";
+import QuestionsPage from "./components/QuestionsPage";
 
 export default function App() {
   return (
@@ -8,6 +9,7 @@ export default function App() {
       <Reset />
       <ContainerSite />
       <HomePage />
+      <QuestionsPage />
     </>
   );
 }
