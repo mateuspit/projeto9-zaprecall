@@ -3,6 +3,7 @@ import React from "react";
 import Logo from "../assets/logo.png"
 import QuestionNumberSpot from "./QuestionNumberSpot";
 import QuestionSpot from "./QuestionSpot";
+import Answer from "./Answer";
 import Wrong from "../assets/icone_erro.png"
 import Right from "../assets/icone_certo.png"
 import Almost from "../assets/icone_quase.png"
@@ -18,6 +19,8 @@ export default function QuestionsPage() {
             <QuestionNumberSpot />
 
             <QuestionSpot />
+
+            <Answer />
             
 
 
