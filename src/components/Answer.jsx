@@ -12,9 +12,21 @@ export default function Answer() {
         <ContainerAnswerSpot>
             <AnswerText>
                 JSX é uma sintaxe para
+                escrever HTML dentro do JSintaxe para
+                escrever HTML dentro do JSintaxe para
+                escrever HTML dentro do JSintaxe para
+                escrever HTML dentro do JSintaxe para
                 escrever HTML dentro do JS
             </AnswerText>
-            {/* <ShowAnswerButton src={TurnArrowIcon} alt={"Botão de virar"} /> */}
+            <ForgotButton>
+                Não lembrei
+            </ForgotButton>
+            <AlmostButton>
+                Quase não lembrei
+            </AlmostButton>
+            <RightButton>
+                Zap!
+            </RightButton>
 
         </ContainerAnswerSpot>
     );
@@ -33,6 +45,7 @@ const ContainerAnswerSpot = styled.div`
 const AnswerText = styled.p`
     margin-top: 18px;
     margin-left: 15px;
+    margin-bottom: 60px;
     font-family: 'Recursive';
     font-style: normal;
     font-weight: 400;
@@ -45,5 +58,46 @@ const ForgotButton = styled.button`
     width: 85.17px;
     height: 37.17px;
     background: #FF3030;
-    border-radius: 5px;    
+    border-radius: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    color: white;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+`;
+
+const AlmostButton = styled.button`
+    width: 85.17px;
+    height: 37.17px;
+    background: #FF922E;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 110px;
+    color: white;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+`;
+
+const RightButton = styled.button`
+    width: 85.17px;
+    height: 37.17px;
+    background: #2FBE34;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 203px;
+    color: white;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
 `;
