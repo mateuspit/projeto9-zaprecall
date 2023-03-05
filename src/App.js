@@ -4,9 +4,12 @@ import HomePage from "./components/HomePage";
 import QuestionsPage from "./components/QuestionsPage";
 
 export default function App() {
+	const [homePageUp, setHomePageUp] = React.useState("flex");
+	const [questionPageUp, setQuestionPageUp] = React.useState("none");
 	
 	function hideHomePage(){
-		alert("Oi!");
+		setHomePageUp("none");
+		setQuestionPageUp("flex");
 	}
 
   return (
@@ -14,9 +17,9 @@ export default function App() {
       <Reset />
       <ContainerSite />
 
-      <HomePage hideHomePage={hideHomePage}/>
+      <HomePage hideHomePage={hideHomePage} homePageUp={homePageUp}/>
 
-      <QuestionsPage />
+      <QuestionsPage questionPageUp={questionPageUp} />
     </>
   );
 }

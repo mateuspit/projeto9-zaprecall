@@ -6,9 +6,9 @@ import QuestionSpot from "./QuestionSpot";
 import QuestionPageFooter from "./QuestionPageFooter";
 import Answer from "./Answer";
 
-export default function QuestionsPage() {
+export default function QuestionsPage(props) {
     return (
-        <ContainerQuestionsPage>
+        <ContainerQuestionsPage showQuestionPage={props.questionPageUp}>
             <Header>
                 <LogoHome src={Logo} alt="Logo" />
                 <TitleHome>ZapRecall</TitleHome>
@@ -27,7 +27,7 @@ export default function QuestionsPage() {
 }
 
 const ContainerQuestionsPage = styled.div`
-    display: none;
+    display: ${props => props.showQuestionPage};
     flex-direction: column;
     align-items: center;
     margin-bottom: 180px;

@@ -4,7 +4,7 @@ import Logo from "../assets/logo.png"
 
 export default function HomePage(props) {
     return (
-        <ContainerHomePage>
+        <ContainerHomePage hideHomePage={props.homePageUp} >
             <LogoHome src={Logo} alt="Logo" />
             <TitleHome>ZapRecall</TitleHome>
             <ButtonHome onClick={() => props.hideHomePage()}>Iniciar Recall!</ButtonHome>
@@ -13,7 +13,7 @@ export default function HomePage(props) {
 }
 
 const ContainerHomePage = styled.div`
-    display: flex;
+    display: ${props => props.hideHomePage};
     flex-direction: column;
     align-items: center;
 
