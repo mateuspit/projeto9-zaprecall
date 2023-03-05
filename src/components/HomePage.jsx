@@ -2,18 +2,18 @@ import styled from "styled-components";
 import React from "react";
 import Logo from "../assets/logo.png"
 
-export default function HomePage() {
+export default function HomePage(props) {
     return (
         <ContainerHomePage>
             <LogoHome src={Logo} alt="Logo" />
             <TitleHome>ZapRecall</TitleHome>
-            <ButtonHome>Iniciar Recall!</ButtonHome>
+            <ButtonHome onClick={() => props.hideHomePage()}>Iniciar Recall!</ButtonHome>
         </ContainerHomePage>
     );
 }
 
 const ContainerHomePage = styled.div`
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
 

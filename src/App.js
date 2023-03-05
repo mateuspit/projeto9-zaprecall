@@ -4,11 +4,18 @@ import HomePage from "./components/HomePage";
 import QuestionsPage from "./components/QuestionsPage";
 
 export default function App() {
+	
+	function hideHomePage(){
+		alert("Oi!");
+	}
+
   return (
     <>
       <Reset />
       <ContainerSite />
-      <HomePage />
+
+      <HomePage hideHomePage={hideHomePage}/>
+
       <QuestionsPage />
     </>
   );

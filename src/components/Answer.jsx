@@ -1,11 +1,5 @@
 import styled from "styled-components";
 import React from "react";
-import Logo from "../assets/logo.png"
-import QuestionNumberSpot from "./QuestionNumberSpot";
-import Wrong from "../assets/icone_erro.png"
-import Right from "../assets/icone_certo.png"
-import Almost from "../assets/icone_quase.png"
-import TurnArrowIcon from "../assets/seta_virar.png"
 
 export default function Answer() {
     return (
