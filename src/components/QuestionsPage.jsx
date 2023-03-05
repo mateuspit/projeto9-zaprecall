@@ -5,6 +5,7 @@ import QuestionNumberSpot from "./QuestionNumberSpot";
 import QuestionSpot from "./QuestionSpot";
 import QuestionPageFooter from "./QuestionPageFooter";
 import Answer from "./Answer";
+import cards from "../cards"
 
 export default function QuestionsPage(props) {
     return (
@@ -14,11 +15,19 @@ export default function QuestionsPage(props) {
                 <TitleHome>ZapRecall</TitleHome>
             </Header>
 
-            <QuestionNumberSpot />
-
-            <QuestionSpot />
-
-            <Answer />
+            <QuestionNumberSpot
+                wrongAnsweredQuestions={props.wrongAnsweredQuestions}
+                almostAnsweredQuestions={props.almostAnsweredQuestions}
+                rightAnsweredQuestions={props.rightAnsweredQuestions}
+                forgotButtonFunction={props.forgotButtonFunction}
+                almostButtonFunction={props.almostButtonFunction}
+                rightButtonFunction={props.rightButtonFunction}
+                answeredQuestions={props.answeredQuestions}
+                showAnswerFunction={props.showAnswerFunction}
+                showedQuestions={props.showedQuestions}
+                showQuestion={props.showQuestion}
+                showQuestionFunction={props.showQuestionFunction}
+            />
 
             <QuestionPageFooter />
 

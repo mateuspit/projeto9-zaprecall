@@ -9,7 +9,6 @@ export default function QuestionSpot() {
             O que é JSX?aO queque é JSX?aO que é JSX?aO que é JSX?a
             </QuestionText>
             <ShowAnswerButton src={TurnArrowIcon} alt={"Botão de virar"}/>
-
         </ContainerQuestionSpot>
     );
 }

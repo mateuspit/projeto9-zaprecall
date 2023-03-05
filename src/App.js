@@ -6,22 +6,66 @@ import QuestionsPage from "./components/QuestionsPage";
 export default function App() {
 	const [homePageUp, setHomePageUp] = React.useState("flex");
 	const [questionPageUp, setQuestionPageUp] = React.useState("none");
-	
-	function hideHomePage(){
+	const [showQuestion, setShowQuestion] = React.useState("none")
+	const [showedQuestions, setShowedQuestions] = React.useState([]);
+	const [answeredQuestions, setAnsweredQuestions] = React.useState([]);
+	const [wrongAnsweredQuestions, setWrongAnsweredQuestions] = React.useState([]);
+	const [almostAnsweredQuestions, setAlmostAnsweredQuestions] = React.useState([]);
+	const [rightAnsweredQuestions, setRightAnsweredQuestions] = React.useState([]);
+
+	function hideHomePage() {
 		setHomePageUp("none");
 		setQuestionPageUp("flex");
 	}
 
-  return (
-    <>
-      <Reset />
-      <ContainerSite />
+	function showQuestionFunction(i) {
+		const newShowedQuestions = [...showedQuestions, i];
+        setShowedQuestions(newShowedQuestions);
+	}
 
-      <HomePage hideHomePage={hideHomePage} homePageUp={homePageUp}/>
+	function showAnswerFunction(i){
+		const newAnsweredQuestions = [...answeredQuestions, i];
+        setAnsweredQuestions(newAnsweredQuestions);
+	}
 
-      <QuestionsPage questionPageUp={questionPageUp} />
-    </>
-  );
+	// function forgotButtonFunction(i){
+	// 	alert("esqueceu");	
+	// 	setWrongAnsweredQuestions(...wrongAnsweredQuestions, i)	
+	// }
+
+	// function almostButtonFunction(i){
+	// 	alert("quasee");
+	// 	setAlmostAnsweredQuestions(...almostAnsweredQuestions, i)					
+	// }
+
+	// function rightButtonFunction(i){
+	// 	alert("lembresasi");	
+	// 	setRightAnsweredQuestions(...rightAnsweredQuestions, i)				
+	// }
+
+	return (
+		<>
+			<Reset />
+			<ContainerSite />
+
+			<HomePage hideHomePage={hideHomePage} homePageUp={homePageUp} />
+
+			<QuestionsPage 
+			wrongAnsweredQuestions={wrongAnsweredQuestions}
+			almostAnsweredQuestions={almostAnsweredQuestions}
+			rightAnsweredQuestions={rightAnsweredQuestions}
+			// forgotButtonFunction={forgotButtonFunction}
+			// almostButtonFunction={almostButtonFunction}
+			// rightButtonFunction={rightButtonFunction}
+			answeredQuestions={answeredQuestions} 
+			showAnswerFunction={showAnswerFunction} 
+			showedQuestions={showedQuestions} 
+			showQuestion={showQuestion} 
+			questionPageUp={questionPageUp} 
+			showQuestionFunction={showQuestionFunction} 
+			/>
+		</>
+	);
 }
 
 const ContainerSite = createGlobalStyle`
