@@ -8,13 +8,13 @@ import Almost from "../assets/icone_quase.png"
 function functionPlotIcon(status) {
     switch (status) {
         case "wrong":
-            return (<Icon src={Wrong} alt={"WrongIcon"} />);
+            return (<Icon data-test="no-icon" src={Wrong} alt={"WrongIcon"} />);
 
         case "almost":
-            return (<Icon src={Almost} alt={"RightIcon"} />);
+            return (<Icon data-test="partial-icon" src={Almost} alt={"RightIcon"} />);
 
         case "right":
-            return (<Icon src={Right} alt={"AlmostIcon"} />);
+            return (<Icon data-test="zap-icon" src={Right} alt={"AlmostIcon"} />);
     }
 }
 
@@ -22,7 +22,7 @@ function functionPlotIcon(status) {
 export default function QuestionPageFooter(props) {
     return (
         <ContainerQuestionPageFooter>
-            <FinalMessage showFinalMessage={props.finalMessage.enableFinalMessage}>
+            <FinalMessage data-test="finish-text" showFinalMessage={props.finalMessage.enableFinalMessage}>
                 <FinalTitle>
                     {props.finalMessage.finalTitle}
                 </FinalTitle>
@@ -30,7 +30,7 @@ export default function QuestionPageFooter(props) {
                     {props.finalMessage.finalText}
                 </FinalText>
             </FinalMessage>
-            <DoneItensStatus>
+            <DoneItensStatus data-test="footer">
                 {props.counterQuestions}/{props.cards.length} CONCLUÍDOS
             </DoneItensStatus>
             <DoneIconsStatus>

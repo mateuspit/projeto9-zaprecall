@@ -7,7 +7,7 @@ export default function HomePage(props) {
         <ContainerHomePage hideHomePage={props.homePageUp} >
             <LogoHome src={Logo} alt="Logo" />
             <TitleHome>ZapRecall</TitleHome>
-            <ButtonHome onClick={() => props.hideHomePage()}>Iniciar Recall!</ButtonHome>
+            <ButtonHome data-test="start-btn" onClick={() => props.hideHomePage()}>Iniciar Recall!</ButtonHome>
         </ContainerHomePage>
     );
 }

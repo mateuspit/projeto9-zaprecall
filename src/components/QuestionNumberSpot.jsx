@@ -20,55 +20,58 @@ export default function QuestionNumberSpot(props) {
     //     return "none";
     // }
     function funcao(arrayCards, i) {
-        if(props.rightAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)){
-            return(
-                    <QuestionSpot key={i}>
-                        <RightAnswer>
-                            Pergunta {i + 1}
-                        </RightAnswer>
-                        <IconButton
-                            src={Right}
-                            alt={"RightIcon"} />
-                    </QuestionSpot>                
+        if (props.rightAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)) {
+            return (
+                <QuestionSpot key={i}>
+                    <RightAnswer>
+                        Pergunta {i + 1}
+                    </RightAnswer>
+                    <IconButton
+                        data-test="zap-icon"
+                        src={Right}
+                        alt={"RightIcon"} />
+                </QuestionSpot>
             );
         }
-        else if(props.almostAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)){
-            return(
-                    <QuestionSpot key={i}>
-                        <AlmostAnswer>
-                            Pergunta {i + 1}
-                        </AlmostAnswer>
-                        <IconButton
-                            src={Almost}
-                            alt={"AlmostIcon"} />
-                    </QuestionSpot>                
+        else if (props.almostAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)) {
+            return (
+                <QuestionSpot key={i}>
+                    <AlmostAnswer>
+                        Pergunta {i + 1}
+                    </AlmostAnswer>
+                    <IconButton
+                        data-test="partial-icon"
+                        src={Almost}
+                        alt={"AlmostIcon"} />
+                </QuestionSpot>
             );
         }
-        else if(props.wrongAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)){
-            return(
-                    <QuestionSpot key={i}>
-                        <WrongAnswer>
-                            Pergunta {i + 1}
-                        </WrongAnswer>
-                        <IconButton
-                            src={Wrong}
-                            alt={"WrongIcon"} />
-                    </QuestionSpot>                
+        else if (props.wrongAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)) {
+            return (
+                <QuestionSpot key={i}>
+                    <WrongAnswer data-test="flashcard-text">
+                        Pergunta {i + 1}
+                    </WrongAnswer>
+                    <IconButton
+                        data-test="no-icon"
+                        src={Wrong}
+                        alt={"WrongIcon"} />
+                </QuestionSpot>
             );
         }
         else if (props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)) {
             return (
                 <ContainerAnswerSpot key={i}>
-                    <AnswerText>
+                    <AnswerText data-test="flashcard-text">
                         {arrayCards.answer}
                     </AnswerText>
-                    <ForgotButton onClick={()=> props.forgotButtonFunction(i)}>
+                    <ForgotButton data-test="no-btn" onClick={() => props.forgotButtonFunction(i)}>
                         Não lembrei
                     </ForgotButton>
-                    <AlmostButton onClick={()=> props.almostButtonFunction(i)}>
+                    <AlmostButton data-test="partial-btn" onClick={() => props.almostButtonFunction(i)}>
                         Quase não lembrei
                     </AlmostButton>
-                    <RightButton onClick={()=> props.rightButtonFunction(i)}>
+                    <RightButton data-test="zap-btn" onClick={() => props.rightButtonFunction(i)}>
                         Zap!
                     </RightButton>
                 </ContainerAnswerSpot>
@@ -77,10 +80,11 @@ export default function QuestionNumberSpot(props) {
         else if (props.showedQuestions.includes(i)) {
             return (
                 <ContainerQuestionSpot key={i}>
-                    <QuestionText>
+                    <QuestionText data-test="flashcard-text" >
                         {arrayCards.question}
                     </QuestionText>
                     <ShowAnswerButton
+                        data-test="turn-btn"
                         onClick={() => props.showAnswerFunction(i)}
                         src={TurnArrowIcon}
                         alt={"Botão de virar"} />
@@ -89,11 +93,12 @@ export default function QuestionNumberSpot(props) {
         }
         else {
             return (
-                <QuestionSpot key={i}>
-                    <PlayAnswer>
+                <QuestionSpot data-test="flashcard" key={i}>
+                    <PlayAnswer data-test="flashcard-text">
                         Pergunta {i + 1}
                     </PlayAnswer>
                     <IconButton
+                        data-test="play-btn"
                         onClick={() => props.showQuestionFunction(i)}
                         src={Play}
                         alt={`Pergunta ${i + 1}`} />
@@ -101,41 +106,6 @@ export default function QuestionNumberSpot(props) {
             );
         }
     }
-
-    // <>
-    //                 <QuestionSpot key={i}>
-    //                     <PlayAnswer>
-    //                         Pergunta {i + 1}
-    //                     </PlayAnswer>
-    //                     <IconButton
-    //                         onClick={() => props.showQuestionFunction(i)}
-    //                         src={Play}
-    //                         alt={"WrongIcon"} />
-    //                 </QuestionSpot>
-
-    //                 <ContainerQuestionSpot showQuestion={} key={arrayCards.question}>
-    //                     <QuestionText>
-    //                         {arrayCards.question}
-    //                     </QuestionText>
-    //                     <ShowAnswerButton src={TurnArrowIcon} alt={"Botão de virar"} />
-    //                 </ContainerQuestionSpot>
-
-    //                 <ContainerAnswerSpot key={arrayCards.answer}>
-    //                     <AnswerText>
-    //                         {arrayCards.answer}
-    //                     </AnswerText>
-    //                     <ForgotButton>
-    //                         Não lembrei
-    //                     </ForgotButton>
-    //                     <AlmostButton>
-    //                         Quase não lembrei
-    //                     </AlmostButton>
-    //                     <RightButton>
-    //                         Zap!
-    //                     </RightButton>
-    //                 </ContainerAnswerSpot>
-    //             </>
-
 
     return (
         <ContainerQuestion>
