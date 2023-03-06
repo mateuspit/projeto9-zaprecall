@@ -244,6 +244,7 @@ const RightButton = styled.button`
 
 const QuestionText = styled.p`
     padding-top: 18px;
+    margin-right: 15px;
     margin-left: 15px;
     font-family: 'Recursive';
     font-style: normal;
