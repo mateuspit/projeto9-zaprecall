@@ -7,7 +7,7 @@ import Almost from "../assets/icone_quase.png"
 const finalTitle = ["🥳 Parabéns!","😥 Putz..."];
 const finalText = ["Você não esqueceu de nenhum flashcard!","Ainda faltam alguns... Mas não desanime!"]
 
-export default function QuestionPageFooter() {
+export default function QuestionPageFooter(props) {
     return (
         <ContainerQuestionPageFooter>
             <FinalMessage>
@@ -19,7 +19,7 @@ export default function QuestionPageFooter() {
                 </FinalText>
             </FinalMessage>
             <DoneItensStatus>
-                3/4 CONCLUÍDOS
+                {props.counterQuestions}/{props.cards.length} CONCLUÍDOS
             </DoneItensStatus>
             <DoneIconsStatus>
                 <Icon src={Wrong} alt={"WrongIcon"} />

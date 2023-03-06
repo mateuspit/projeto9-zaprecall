@@ -16,6 +16,7 @@ export default function QuestionsPage(props) {
             </Header>
 
             <QuestionNumberSpot
+                cards={props.cards}
                 wrongAnsweredQuestions={props.wrongAnsweredQuestions}
                 almostAnsweredQuestions={props.almostAnsweredQuestions}
                 rightAnsweredQuestions={props.rightAnsweredQuestions}
@@ -29,7 +30,7 @@ export default function QuestionsPage(props) {
                 showQuestionFunction={props.showQuestionFunction}
             />
 
-            <QuestionPageFooter />
+            <QuestionPageFooter cards={cards} counterQuestions={props.counterQuestions}/>
 
         </ContainerQuestionsPage>
     );

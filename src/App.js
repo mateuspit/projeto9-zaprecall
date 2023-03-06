@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 import React from "react";
 import HomePage from "./components/HomePage";
 import QuestionsPage from "./components/QuestionsPage";
+import cards from "./cards"
 
 export default function App() {
 	const [homePageUp, setHomePageUp] = React.useState("flex");
@@ -12,6 +13,7 @@ export default function App() {
 	const [wrongAnsweredQuestions, setWrongAnsweredQuestions] = React.useState([]);
 	const [almostAnsweredQuestions, setAlmostAnsweredQuestions] = React.useState([]);
 	const [rightAnsweredQuestions, setRightAnsweredQuestions] = React.useState([]);
+	const [counterQuestions, setCounterQuestions] = React.useState(0)
 
 	function hideHomePage() {
 		setHomePageUp("none");
@@ -30,17 +32,20 @@ export default function App() {
 
 	function forgotButtonFunction(i){
 		const newWrongAnsweredQuestions = [...wrongAnsweredQuestions, i]
-		setWrongAnsweredQuestions(newWrongAnsweredQuestions)	
+		setWrongAnsweredQuestions(newWrongAnsweredQuestions)
+		setCounterQuestions(counterQuestions+1)
 	}
 
 	function almostButtonFunction(i){
 		const newAlmostAnsweredQuestions = [... almostAnsweredQuestions, i]
-		setAlmostAnsweredQuestions(newAlmostAnsweredQuestions)					
+		setAlmostAnsweredQuestions(newAlmostAnsweredQuestions)	
+		setCounterQuestions(counterQuestions+1)				
 	}
 
 	function rightButtonFunction(i){
 		const newRightAnsweredQuestions = [...rightAnsweredQuestions, i]
-		setRightAnsweredQuestions(newRightAnsweredQuestions)				
+		setRightAnsweredQuestions(newRightAnsweredQuestions)	
+		setCounterQuestions(counterQuestions+1)			
 	}
 
 	return (
@@ -51,6 +56,8 @@ export default function App() {
 			<HomePage hideHomePage={hideHomePage} homePageUp={homePageUp} />
 
 			<QuestionsPage 
+			counterQuestions={counterQuestions}
+			cards={cards}
 			wrongAnsweredQuestions={wrongAnsweredQuestions}
 			almostAnsweredQuestions={almostAnsweredQuestions}
 			rightAnsweredQuestions={rightAnsweredQuestions}

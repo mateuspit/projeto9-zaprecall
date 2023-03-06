@@ -4,10 +4,7 @@ import Wrong from "../assets/icone_erro.png"
 import Right from "../assets/icone_certo.png"
 import Almost from "../assets/icone_quase.png"
 import styled from "styled-components";
-import cards from "../cards"
 import TurnArrowIcon from "../assets/seta_virar.png"
-
-
 
 
 export default function QuestionNumberSpot(props) {
@@ -143,7 +140,7 @@ export default function QuestionNumberSpot(props) {
     return (
         <ContainerQuestion>
 
-            {cards.map((arrayCards, i) =>
+            {props.cards.map((arrayCards, i) =>
                 funcao(arrayCards, i)
             )}
         </ContainerQuestion>
