@@ -16,8 +16,18 @@ export default function App() {
 	const [counterQuestions, setCounterQuestions] = React.useState(0)
 	const [positionOfAnsweredQuestions, setPositionOfAnsweredQuestions] = React.useState({
 		Posicao: [],
-		Status: []
+		Status: [],
 	})
+
+	const finalTitle = ["🥳 Parabéns!", "😥 Putz..."];
+	const finalText = ["Você não esqueceu de nenhum flashcard!", "Ainda faltam alguns... Mas não desanime!"]
+
+	const [finalMessage, setFinalMessage] = React.useState({
+		finalTitle: [finalTitle[0]],
+		finalText: [finalText[0]],
+		enableFinalMessage: "none"
+	})
+
 
 	function hideHomePage() {
 		setHomePageUp("none");
@@ -37,18 +47,34 @@ export default function App() {
 	function forgotButtonFunction(i) {
 		const newWrongAnsweredQuestions = [...wrongAnsweredQuestions, i]
 		setWrongAnsweredQuestions(newWrongAnsweredQuestions)
-		setCounterQuestions(counterQuestions + 1)
+		counter()
 		setPositionOfAnsweredQuestions({
 			...positionOfAnsweredQuestions,
 			Posicao: [...positionOfAnsweredQuestions.Posicao, i],
 			Status: [...positionOfAnsweredQuestions.Status, "wrong"],
 		});
+		setFinalMessage({
+			...finalMessage,
+			finalTitle: [finalTitle[1]],
+			finalText: [finalText[1]],
+		});
+	}
+
+	function counter() {
+		const newCounterQuestions = counterQuestions + 1
+		setCounterQuestions(newCounterQuestions)
+		if (newCounterQuestions === cards.length) {
+			setFinalMessage({
+				...finalMessage,
+				enableFinalMessage: "flex"
+			});
+		}
 	}
 
 	function almostButtonFunction(i) {
 		const newAlmostAnsweredQuestions = [...almostAnsweredQuestions, i]
 		setAlmostAnsweredQuestions(newAlmostAnsweredQuestions)
-		setCounterQuestions(counterQuestions + 1)
+		counter()
 		setPositionOfAnsweredQuestions({
 			...positionOfAnsweredQuestions,
 			Posicao: [...positionOfAnsweredQuestions.Posicao, i],
@@ -59,7 +85,7 @@ export default function App() {
 	function rightButtonFunction(i) {
 		const newRightAnsweredQuestions = [...rightAnsweredQuestions, i]
 		setRightAnsweredQuestions(newRightAnsweredQuestions)
-		setCounterQuestions(counterQuestions + 1)
+		counter()
 		setPositionOfAnsweredQuestions({
 			...positionOfAnsweredQuestions,
 			Posicao: [...positionOfAnsweredQuestions.Posicao, i],
@@ -75,6 +101,7 @@ export default function App() {
 			<HomePage hideHomePage={hideHomePage} homePageUp={homePageUp} />
 
 			<QuestionsPage
+				finalMessage={finalMessage}
 				positionOfAnsweredQuestions={positionOfAnsweredQuestions}
 				counterQuestions={counterQuestions}
 				cards={cards}

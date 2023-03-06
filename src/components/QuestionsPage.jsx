@@ -31,6 +31,7 @@ export default function QuestionsPage(props) {
             />
 
             <QuestionPageFooter 
+            finalMessage={props.finalMessage}
             positionOfAnsweredQuestions={props.positionOfAnsweredQuestions.Status}
             cards={cards} 
             counterQuestions={props.counterQuestions}/>

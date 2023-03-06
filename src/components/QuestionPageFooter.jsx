@@ -4,8 +4,6 @@ import Wrong from "../assets/icone_erro.png"
 import Right from "../assets/icone_certo.png"
 import Almost from "../assets/icone_quase.png"
 
-const finalTitle = ["🥳 Parabéns!", "😥 Putz..."];
-const finalText = ["Você não esqueceu de nenhum flashcard!", "Ainda faltam alguns... Mas não desanime!"]
 
 function functionPlotIcon(status) {
     switch (status) {
@@ -24,12 +22,12 @@ function functionPlotIcon(status) {
 export default function QuestionPageFooter(props) {
     return (
         <ContainerQuestionPageFooter>
-            <FinalMessage>
+            <FinalMessage showFinalMessage={props.finalMessage.enableFinalMessage}>
                 <FinalTitle>
-                    {finalTitle[0]}
+                    {props.finalMessage.finalTitle}
                 </FinalTitle>
                 <FinalText>
-                    {finalText[0]}
+                    {props.finalMessage.finalText}
                 </FinalText>
             </FinalMessage>
             <DoneItensStatus>
@@ -98,7 +96,7 @@ const FinalTitle = styled.p`
 `;
 
 const FinalMessage = styled.div`
-    display: none;
+    display: ${props => props.showFinalMessage};
     flex-direction: column;
     justify-content: center;
     align-items: center;
