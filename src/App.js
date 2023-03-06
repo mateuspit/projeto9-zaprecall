@@ -28,20 +28,20 @@ export default function App() {
         setAnsweredQuestions(newAnsweredQuestions);
 	}
 
-	// function forgotButtonFunction(i){
-	// 	alert("esqueceu");	
-	// 	setWrongAnsweredQuestions(...wrongAnsweredQuestions, i)	
-	// }
+	function forgotButtonFunction(i){
+		const newWrongAnsweredQuestions = [...wrongAnsweredQuestions, i]
+		setWrongAnsweredQuestions(newWrongAnsweredQuestions)	
+	}
 
-	// function almostButtonFunction(i){
-	// 	alert("quasee");
-	// 	setAlmostAnsweredQuestions(...almostAnsweredQuestions, i)					
-	// }
+	function almostButtonFunction(i){
+		const newAlmostAnsweredQuestions = [... almostAnsweredQuestions, i]
+		setAlmostAnsweredQuestions(newAlmostAnsweredQuestions)					
+	}
 
-	// function rightButtonFunction(i){
-	// 	alert("lembresasi");	
-	// 	setRightAnsweredQuestions(...rightAnsweredQuestions, i)				
-	// }
+	function rightButtonFunction(i){
+		const newRightAnsweredQuestions = [...rightAnsweredQuestions, i]
+		setRightAnsweredQuestions(newRightAnsweredQuestions)				
+	}
 
 	return (
 		<>
@@ -54,9 +54,9 @@ export default function App() {
 			wrongAnsweredQuestions={wrongAnsweredQuestions}
 			almostAnsweredQuestions={almostAnsweredQuestions}
 			rightAnsweredQuestions={rightAnsweredQuestions}
-			// forgotButtonFunction={forgotButtonFunction}
-			// almostButtonFunction={almostButtonFunction}
-			// rightButtonFunction={rightButtonFunction}
+			forgotButtonFunction={forgotButtonFunction}
+			almostButtonFunction={almostButtonFunction}
+			rightButtonFunction={rightButtonFunction}
 			answeredQuestions={answeredQuestions} 
 			showAnswerFunction={showAnswerFunction} 
 			showedQuestions={showedQuestions} 

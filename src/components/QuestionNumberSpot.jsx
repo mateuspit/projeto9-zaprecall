@@ -1,6 +1,8 @@
 import React from "react"
 import Play from "../assets/seta_play.png"
 import Wrong from "../assets/icone_erro.png"
+import Right from "../assets/icone_certo.png"
+import Almost from "../assets/icone_quase.png"
 import styled from "styled-components";
 import cards from "../cards"
 import TurnArrowIcon from "../assets/seta_virar.png"
@@ -21,32 +23,55 @@ export default function QuestionNumberSpot(props) {
     //     return "none";
     // }
     function funcao(arrayCards, i) {
-        // if(props.wrongAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)){
-        //     return(
-        //             <QuestionSpot key={i}>
-        //                 <PlayAnswer>
-        //                     Pergunta {i + 1}
-        //                 </PlayAnswer>
-        //                 <ForgotButton
-        //                     src={Wrong}
-        //                     alt={"WrongIcon"} />
-        //             </QuestionSpot>                
-        //     );
-        // }
-        // else 
-        if (props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)) {
+        if(props.rightAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)){
+            return(
+                    <QuestionSpot key={i}>
+                        <RightAnswer>
+                            Pergunta {i + 1}
+                        </RightAnswer>
+                        <IconButton
+                            src={Right}
+                            alt={"RightIcon"} />
+                    </QuestionSpot>                
+            );
+        }
+        else if(props.almostAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)){
+            return(
+                    <QuestionSpot key={i}>
+                        <AlmostAnswer>
+                            Pergunta {i + 1}
+                        </AlmostAnswer>
+                        <IconButton
+                            src={Almost}
+                            alt={"AlmostIcon"} />
+                    </QuestionSpot>                
+            );
+        }
+        else if(props.wrongAnsweredQuestions.includes(i) && props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)){
+            return(
+                    <QuestionSpot key={i}>
+                        <WrongAnswer>
+                            Pergunta {i + 1}
+                        </WrongAnswer>
+                        <IconButton
+                            src={Wrong}
+                            alt={"WrongIcon"} />
+                    </QuestionSpot>                
+            );
+        }
+        else if (props.answeredQuestions.includes(i) && props.showedQuestions.includes(i)) {
             return (
                 <ContainerAnswerSpot key={i}>
                     <AnswerText>
                         {arrayCards.answer}
                     </AnswerText>
-                    <ForgotButton >
+                    <ForgotButton onClick={()=> props.forgotButtonFunction(i)}>
                         Não lembrei
                     </ForgotButton>
-                    <AlmostButton >
+                    <AlmostButton onClick={()=> props.almostButtonFunction(i)}>
                         Quase não lembrei
                     </AlmostButton>
-                    <RightButton >
+                    <RightButton onClick={()=> props.rightButtonFunction(i)}>
                         Zap!
                     </RightButton>
                 </ContainerAnswerSpot>
