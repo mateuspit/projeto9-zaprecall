@@ -4,8 +4,22 @@ import Wrong from "../assets/icone_erro.png"
 import Right from "../assets/icone_certo.png"
 import Almost from "../assets/icone_quase.png"
 
-const finalTitle = ["🥳 Parabéns!","😥 Putz..."];
-const finalText = ["Você não esqueceu de nenhum flashcard!","Ainda faltam alguns... Mas não desanime!"]
+const finalTitle = ["🥳 Parabéns!", "😥 Putz..."];
+const finalText = ["Você não esqueceu de nenhum flashcard!", "Ainda faltam alguns... Mas não desanime!"]
+
+function functionPlotIcon(status) {
+    switch (status) {
+        case "wrong":
+            return (<Icon src={Wrong} alt={"WrongIcon"} />);
+
+        case "almost":
+            return (<Icon src={Almost} alt={"RightIcon"} />);
+
+        case "right":
+            return (<Icon src={Right} alt={"AlmostIcon"} />);
+    }
+}
+
 
 export default function QuestionPageFooter(props) {
     return (
@@ -22,9 +36,7 @@ export default function QuestionPageFooter(props) {
                 {props.counterQuestions}/{props.cards.length} CONCLUÍDOS
             </DoneItensStatus>
             <DoneIconsStatus>
-                <Icon src={Wrong} alt={"WrongIcon"} />
-                <Icon src={Right} alt={"AlmostIcon"} />
-                <Icon src={Almost} alt={"RightIcon"} />
+                {props.positionOfAnsweredQuestions.map(status => functionPlotIcon(status))}
             </DoneIconsStatus>
         </ContainerQuestionPageFooter >
     );

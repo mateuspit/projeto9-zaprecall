@@ -30,7 +30,10 @@ export default function QuestionsPage(props) {
                 showQuestionFunction={props.showQuestionFunction}
             />
 
-            <QuestionPageFooter cards={cards} counterQuestions={props.counterQuestions}/>
+            <QuestionPageFooter 
+            positionOfAnsweredQuestions={props.positionOfAnsweredQuestions.Status}
+            cards={cards} 
+            counterQuestions={props.counterQuestions}/>
 
         </ContainerQuestionsPage>
     );

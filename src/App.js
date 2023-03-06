@@ -14,6 +14,10 @@ export default function App() {
 	const [almostAnsweredQuestions, setAlmostAnsweredQuestions] = React.useState([]);
 	const [rightAnsweredQuestions, setRightAnsweredQuestions] = React.useState([]);
 	const [counterQuestions, setCounterQuestions] = React.useState(0)
+	const [positionOfAnsweredQuestions, setPositionOfAnsweredQuestions] = React.useState({
+		Posicao: [],
+		Status: []
+	})
 
 	function hideHomePage() {
 		setHomePageUp("none");
@@ -22,30 +26,45 @@ export default function App() {
 
 	function showQuestionFunction(i) {
 		const newShowedQuestions = [...showedQuestions, i];
-        setShowedQuestions(newShowedQuestions);
+		setShowedQuestions(newShowedQuestions);
 	}
 
-	function showAnswerFunction(i){
+	function showAnswerFunction(i) {
 		const newAnsweredQuestions = [...answeredQuestions, i];
-        setAnsweredQuestions(newAnsweredQuestions);
+		setAnsweredQuestions(newAnsweredQuestions);
 	}
 
-	function forgotButtonFunction(i){
+	function forgotButtonFunction(i) {
 		const newWrongAnsweredQuestions = [...wrongAnsweredQuestions, i]
 		setWrongAnsweredQuestions(newWrongAnsweredQuestions)
-		setCounterQuestions(counterQuestions+1)
+		setCounterQuestions(counterQuestions + 1)
+		setPositionOfAnsweredQuestions({
+			...positionOfAnsweredQuestions,
+			Posicao: [...positionOfAnsweredQuestions.Posicao, i],
+			Status: [...positionOfAnsweredQuestions.Status, "wrong"],
+		});
 	}
 
-	function almostButtonFunction(i){
-		const newAlmostAnsweredQuestions = [... almostAnsweredQuestions, i]
-		setAlmostAnsweredQuestions(newAlmostAnsweredQuestions)	
-		setCounterQuestions(counterQuestions+1)				
+	function almostButtonFunction(i) {
+		const newAlmostAnsweredQuestions = [...almostAnsweredQuestions, i]
+		setAlmostAnsweredQuestions(newAlmostAnsweredQuestions)
+		setCounterQuestions(counterQuestions + 1)
+		setPositionOfAnsweredQuestions({
+			...positionOfAnsweredQuestions,
+			Posicao: [...positionOfAnsweredQuestions.Posicao, i],
+			Status: [...positionOfAnsweredQuestions.Status, "almost"],
+		});
 	}
 
-	function rightButtonFunction(i){
+	function rightButtonFunction(i) {
 		const newRightAnsweredQuestions = [...rightAnsweredQuestions, i]
-		setRightAnsweredQuestions(newRightAnsweredQuestions)	
-		setCounterQuestions(counterQuestions+1)			
+		setRightAnsweredQuestions(newRightAnsweredQuestions)
+		setCounterQuestions(counterQuestions + 1)
+		setPositionOfAnsweredQuestions({
+			...positionOfAnsweredQuestions,
+			Posicao: [...positionOfAnsweredQuestions.Posicao, i],
+			Status: [...positionOfAnsweredQuestions.Status, "right"],
+		});
 	}
 
 	return (
@@ -55,21 +74,22 @@ export default function App() {
 
 			<HomePage hideHomePage={hideHomePage} homePageUp={homePageUp} />
 
-			<QuestionsPage 
-			counterQuestions={counterQuestions}
-			cards={cards}
-			wrongAnsweredQuestions={wrongAnsweredQuestions}
-			almostAnsweredQuestions={almostAnsweredQuestions}
-			rightAnsweredQuestions={rightAnsweredQuestions}
-			forgotButtonFunction={forgotButtonFunction}
-			almostButtonFunction={almostButtonFunction}
-			rightButtonFunction={rightButtonFunction}
-			answeredQuestions={answeredQuestions} 
-			showAnswerFunction={showAnswerFunction} 
-			showedQuestions={showedQuestions} 
-			showQuestion={showQuestion} 
-			questionPageUp={questionPageUp} 
-			showQuestionFunction={showQuestionFunction} 
+			<QuestionsPage
+				positionOfAnsweredQuestions={positionOfAnsweredQuestions}
+				counterQuestions={counterQuestions}
+				cards={cards}
+				wrongAnsweredQuestions={wrongAnsweredQuestions}
+				almostAnsweredQuestions={almostAnsweredQuestions}
+				rightAnsweredQuestions={rightAnsweredQuestions}
+				forgotButtonFunction={forgotButtonFunction}
+				almostButtonFunction={almostButtonFunction}
+				rightButtonFunction={rightButtonFunction}
+				answeredQuestions={answeredQuestions}
+				showAnswerFunction={showAnswerFunction}
+				showedQuestions={showedQuestions}
+				showQuestion={showQuestion}
+				questionPageUp={questionPageUp}
+				showQuestionFunction={showQuestionFunction}
 			/>
 		</>
 	);
