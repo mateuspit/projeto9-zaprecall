@@ -20,7 +20,7 @@ export default function App() {
 	})
 
 	const finalTitle = ["🥳 Parabéns!", "😥 Putz..."];
-	const finalText = ["Você não esqueceu de nenhum flashcard! É uma grimm!", "Não acertou todos... Não é uma grimm!"]
+	const finalText = ["Você não esqueceu de nenhum flashcard!", "Ainda faltam alguns... Mas não desanime!"]
 
 	const [finalMessage, setFinalMessage] = React.useState({
 		finalTitle: [finalTitle[0]],
